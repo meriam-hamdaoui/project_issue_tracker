@@ -7,7 +7,13 @@ import {
   TextField,
   MenuItem,
 } from "@mui/material";
-export default function AddIssue() {
+import { IIssue } from "../store/slices/interfaces";
+
+type AddIssueProps = {
+  addIssue: (issue: IIssue) => void;
+};
+
+const AddIssue = ({ addIssue }: AddIssueProps) => {
   return (
     <Box sx={{ display: "flex" }}>
       <Stack spacing={2}>
@@ -35,4 +41,6 @@ export default function AddIssue() {
       </Stack>
     </Box>
   );
-}
+};
+
+export default AddIssue;

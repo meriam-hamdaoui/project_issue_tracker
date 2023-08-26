@@ -1,6 +1,21 @@
 import React from "react";
-import { Card, CardActions, CardContent, Typography, Box } from "@mui/material";
-export default function IssueCard() {
+import {
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+  Box,
+  Button,
+} from "@mui/material";
+import { IIssue, IssueProps } from "../store/slices/interfaces";
+
+type RemoveIssueProps = {
+  removeIssue: (issue: IIssue) => void;
+};
+
+type IssueCardProps = IssueProps & RemoveIssueProps;
+
+const IssueCard: React.FC<IssueCardProps> = ({ issue, removeIssue }) => {
   return (
     <Card sx={{ height: "200px" }}>
       <CardContent
@@ -16,7 +31,7 @@ export default function IssueCard() {
               Issue Title :
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Title 1
+              {issue.title}
             </Typography>
           </Box>
           <Box>
@@ -24,29 +39,33 @@ export default function IssueCard() {
               Issue Description :
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Discription of Title 2
+              {issue.description}
             </Typography>
           </Box>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-around" }}>
           <Box>
             <Typography gutterBottom variant="h6" component="div">
-              Opned :{" "}
+              Opned :
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              yesterday{" "}
+              {issue.openedAt}
             </Typography>
           </Box>
           <Box>
             <Typography gutterBottom variant="h6" component="div">
-              Periority :{" "}
+              Periority :
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              medium{" "}
+              {issue.periority}
             </Typography>
           </Box>
         </Box>
       </CardContent>
+      <CardActions>
+        <Button size="small">remove</Button>
+      </CardActions>
     </Card>
   );
-}
+};
+export default IssueCard;

@@ -8,14 +8,14 @@ const initialState: IProject = {
       id: nanoid(),
       title: "issue one",
       description: "issue one",
-      openedAt: "issue one",
+      openedAt: "03/08/2023",
       periority: "medium",
     },
     {
       id: nanoid(),
       title: "issue two",
       description: "issue two",
-      openedAt: "issue two",
+      openedAt: "yesterday",
       periority: "high",
     },
   ],
@@ -31,11 +31,11 @@ const issueSlice = createSlice({
         projectIssuess: [...state.projectIssuess, action.payload],
       };
     },
-    removeIssue: (state, action: PayloadAction<string>) => {
+    removeIssue: (state, action: PayloadAction<IIssue>) => {
       return {
         ...state,
         projectIssuess: state.projectIssuess.filter(
-          (issue) => issue.id !== action.payload
+          (issue) => issue.id !== action.payload.id
         ),
       };
     },
