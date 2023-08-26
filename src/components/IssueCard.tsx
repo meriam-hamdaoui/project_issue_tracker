@@ -44,7 +44,7 @@ const IssueCard: React.FC<IssueProps & RemoveIssueProps> = ({
               Issue Description :
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {issue.description}
+              {issue.description || "Issue without discription"}
             </Typography>
           </Box>
         </Box>
