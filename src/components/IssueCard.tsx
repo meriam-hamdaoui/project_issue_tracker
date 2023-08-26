@@ -51,10 +51,10 @@ const IssueCard: React.FC<IssueProps & RemoveIssueProps> = ({
         <Box sx={{ display: "flex", justifyContent: "space-around" }}>
           <Box>
             <Typography gutterBottom variant="h6" component="div">
-              Opened :
+              Opened At:
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {issue.openedAt}
+              {issue.openedAt.toDateString()}
             </Typography>
           </Box>
           <Box>

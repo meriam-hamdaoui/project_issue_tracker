@@ -2,20 +2,26 @@ import { IIssue, IProject } from "./interfaces";
 import { nanoid } from "nanoid";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+const today = new Date();
+
 const initialState: IProject = {
   projectIssuess: [
     {
       id: nanoid(),
       title: "issue one",
       description: "issue one",
-      openedAt: "yesterday",
+      openedAt: new Date(
+        `${today.getFullYear()}-${today.getMonth()}-${today.getDate() - 1}`
+      ),
       periority: "medium",
     },
     {
       id: nanoid(),
       title: "issue two",
       description: "issue two",
-      openedAt: "yesterday",
+      openedAt: new Date(
+        `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
+      ),
       periority: "high",
     },
   ],

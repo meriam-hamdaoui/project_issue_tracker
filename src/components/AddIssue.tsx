@@ -24,6 +24,7 @@ const AddIssue: React.FC<AddIssueProps> = ({ addIssue }) => {
     setNewIssue({
       ...newIssue,
       [e.target.name]: e.target.value,
+      openedAt: new Date(),
     });
   };
 

@@ -4,7 +4,7 @@ export interface IIssue {
   id: string;
   title: string;
   description?: string;
-  openedAt: "yesterday";
+  openedAt: Date;
   periority: periorityType;
 }
 
