@@ -1,9 +1,11 @@
+type periorityType = "low" | "medium" | "high";
+
 export interface IIssue {
   id: string;
   title: string;
   description?: string;
-  openedAt: string;
-  periority: "low" | "medium" | "high";
+  openedAt: "yesterday";
+  periority: periorityType;
 }
 
 export type IssueProps = {

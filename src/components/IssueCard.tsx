@@ -13,9 +13,14 @@ type RemoveIssueProps = {
   removeIssue: (issue: IIssue) => void;
 };
 
-type IssueCardProps = IssueProps & RemoveIssueProps;
+const IssueCard: React.FC<IssueProps & RemoveIssueProps> = ({
+  issue,
+  removeIssue,
+}) => {
+  const handleClick = () => {
+    removeIssue(issue);
+  };
 
-const IssueCard: React.FC<IssueCardProps> = ({ issue, removeIssue }) => {
   return (
     <Card sx={{ height: "200px" }}>
       <CardContent
@@ -46,7 +51,7 @@ const IssueCard: React.FC<IssueCardProps> = ({ issue, removeIssue }) => {
         <Box sx={{ display: "flex", justifyContent: "space-around" }}>
           <Box>
             <Typography gutterBottom variant="h6" component="div">
-              Opned :
+              Opened :
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {issue.openedAt}
@@ -63,7 +68,9 @@ const IssueCard: React.FC<IssueCardProps> = ({ issue, removeIssue }) => {
         </Box>
       </CardContent>
       <CardActions>
-        <Button size="small">remove</Button>
+        <Button size="small" onClick={handleClick}>
+          remove
+        </Button>
       </CardActions>
     </Card>
   );

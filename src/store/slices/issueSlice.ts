@@ -8,7 +8,7 @@ const initialState: IProject = {
       id: nanoid(),
       title: "issue one",
       description: "issue one",
-      openedAt: "03/08/2023",
+      openedAt: "yesterday",
       periority: "medium",
     },
     {
