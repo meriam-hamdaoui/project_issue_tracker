@@ -1,22 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import AddIssue from "./components/AddIssue";
 import IssueCard from "./components/IssueCard";
 import { Container, Typography, Grid, Box } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { IIssue } from "./Issue.type";
-import { RootState } from "./store";
-import { issueAction } from "./store";
+import { AppDispatch, RootState, useAppDispatch, issueAction } from "./store";
+import { fetchIssues } from "./store/reducers/githubIssueReducer";
 import { bindActionCreators } from "@reduxjs/toolkit";
 
 function App() {
-  const issueList = useSelector(
-    (state: RootState) => state.issues.projectIssuess
+  const dispatch: AppDispatch = useAppDispatch();
+
+  // const issueList = useSelector(
+  //   (state: RootState) => state.issues.projectIssuess
+  // );
+
+  const githubIssueList = useSelector(
+    (state: RootState) => state.githubIssues.issues
   );
 
-  const dispatch = useDispatch();
+  const loading = useSelector((state: RootState) => state.githubIssues.loading);
+  const error = useSelector((state: RootState) => state.githubIssues.error);
 
   const { addIssue, removeIssue } = bindActionCreators(issueAction, dispatch);
+
+  useEffect(() => {
+    dispatch(fetchIssues());
+  }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <Container className="App ">
@@ -37,7 +56,7 @@ function App() {
               }}
             >
               <Typography variant="h4">Issue To Fix</Typography>
-              {issueList.map((issue: IIssue) => (
+              {githubIssueList?.map((issue: IIssue) => (
                 <IssueCard
                   key={issue.id}
                   issue={issue}

@@ -68,5 +68,4 @@ export const githubIssueSlice = createSlice({
       });
   },
 });
-
 export default githubIssueSlice.reducer;
