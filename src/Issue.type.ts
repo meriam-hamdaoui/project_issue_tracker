@@ -1,11 +1,11 @@
-type periorityType = "low" | "medium" | "high";
+// type periorityType = "low" | "medium" | "high";
 
 export interface IIssue {
   id: string;
   title: string;
-  description?: string;
-  openedAt: Date;
-  periority: periorityType;
+  body?: string;
+  // openedAt: Date;
+  // periority: periorityType;
 }
 
 export type IssueProps = {

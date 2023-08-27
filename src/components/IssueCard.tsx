@@ -44,11 +44,11 @@ const IssueCard: React.FC<IssueProps & RemoveIssueProps> = ({
               Issue Description :
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {issue.description || "Issue without discription"}
+              {issue.body || "Issue without discription"}
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+        {/* <Box sx={{ display: "flex", justifyContent: "space-around" }}>
           <Box>
             <Typography gutterBottom variant="h6" component="div">
               Opened At:
@@ -65,7 +65,7 @@ const IssueCard: React.FC<IssueProps & RemoveIssueProps> = ({
               {issue.periority}
             </Typography>
           </Box>
-        </Box>
+        </Box> */}
       </CardContent>
       <CardActions>
         <Button size="small" onClick={handleClick}>

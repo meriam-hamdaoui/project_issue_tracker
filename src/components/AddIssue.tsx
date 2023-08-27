@@ -5,7 +5,7 @@ import {
   Box,
   Stack,
   TextField,
-  MenuItem,
+  // MenuItem,
 } from "@mui/material";
 import { IIssue } from "../Issue.type";
 
@@ -24,14 +24,14 @@ const AddIssue: React.FC<AddIssueProps> = ({ addIssue }) => {
     setNewIssue({
       ...newIssue,
       [e.target.name]: e.target.value,
-      openedAt: new Date(),
     });
   };
 
   const handleClick = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newIssue.title || !newIssue.periority) {
+    if (!newIssue.title) {
       alert("Please give a Title and Periority to the new Issue");
+      return;
     }
     addIssue(newIssue);
   };
@@ -53,10 +53,10 @@ const AddIssue: React.FC<AddIssueProps> = ({ addIssue }) => {
           variant="outlined"
           multiline
           rows={4}
-          name="description"
+          name="body"
           onChange={handleChange}
         />
-        <TextField
+        {/* <TextField
           id="outlined-select-currency"
           select
           label="Periority"
@@ -68,7 +68,7 @@ const AddIssue: React.FC<AddIssueProps> = ({ addIssue }) => {
           <MenuItem value="high">High</MenuItem>
           <MenuItem value="medium">Medium</MenuItem>
           <MenuItem value="low">Low</MenuItem>
-        </TextField>
+        </TextField> */}
         <Button variant="contained" onClick={handleClick}>
           Submit
         </Button>
