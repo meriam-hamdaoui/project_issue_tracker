@@ -7,7 +7,7 @@ import {
   Box,
   Button,
 } from "@mui/material";
-import { IIssue, IssueProps } from "../store/slices/interfaces";
+import { IIssue, IssueProps } from "../Issue.type";
 
 type RemoveIssueProps = {
   removeIssue: (issue: IIssue) => void;

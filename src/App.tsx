@@ -4,7 +4,7 @@ import AddIssue from "./components/AddIssue";
 import IssueCard from "./components/IssueCard";
 import { Container, Typography, Grid, Box } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { IIssue } from "./store/slices/interfaces";
+import { IIssue } from "./Issue.type";
 import { RootState } from "./store";
 import { issueAction } from "./store";
 import { bindActionCreators } from "@reduxjs/toolkit";

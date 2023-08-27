@@ -7,7 +7,7 @@ import {
   TextField,
   MenuItem,
 } from "@mui/material";
-import { IIssue } from "../store/slices/interfaces";
+import { IIssue } from "../Issue.type";
 
 type AddIssueProps = {
   addIssue: (issue: IIssue) => void;

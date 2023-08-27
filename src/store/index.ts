@@ -1,2 +1,2 @@
-export * as issueAction from "./slices/issueSlice";
+export * as issueAction from "./reducers/issueReducer";
 export * from "./store";

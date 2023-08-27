@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import issueSlice from "./slices/issueSlice";
+import issueSlice from "./reducers/issueReducer";
 
 export const store = configureStore({
   reducer: { issues: issueSlice },

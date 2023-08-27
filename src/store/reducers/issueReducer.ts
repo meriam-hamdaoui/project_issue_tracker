@@ -1,4 +1,4 @@
-import { IIssue, IProject } from "./interfaces";
+import { IIssue, IProject } from "../../Issue.type";
 import { nanoid } from "nanoid";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
