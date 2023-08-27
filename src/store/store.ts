@@ -1,8 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 import issueSlice from "./reducers/issueReducer";
+import githubIssueSlice from "./reducers/githubIssueReducer";
 
 export const store = configureStore({
-  reducer: { issues: issueSlice },
+  reducer: {
+    issues: issueSlice,
+    githubIssues: githubIssueSlice,
+  },
 });
 
 /**
@@ -27,3 +32,4 @@ typeof store.dispatch: The typeof operator is used again to get the type of the 
 
 export type AppDispatch: This line exports the AppDispatch type, which you can use in your components when you want to dispatch actions to the Redux store.
  */
+export const useAppDispatch = () => useDispatch<AppDispatch>();
