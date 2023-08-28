@@ -7,8 +7,8 @@ import {
   Box,
   Button,
 } from "@mui/material";
-// import { IIssue, IssueProps } from "../Issue.type";
 import { Issue } from "../store/reducers/projectReducers";
+import DescribeIssue from "./description-issue/DescribeIssue";
 
 type RemoveIssueProps = {
   issue: Issue;
@@ -21,7 +21,7 @@ const IssueCard: React.FC<RemoveIssueProps> = ({ issue, removeIssue }) => {
   };
 
   return (
-    <Card sx={{ height: "200px" }}>
+    <Card sx={{ marginBottom: "20px", textAlign: "left" }}>
       <CardContent
         sx={{
           display: "flex",
@@ -29,7 +29,13 @@ const IssueCard: React.FC<RemoveIssueProps> = ({ issue, removeIssue }) => {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-around",
+          }}
+        >
           <Box>
             <Typography gutterBottom variant="h5" component="div">
               Issue Title :
@@ -43,7 +49,7 @@ const IssueCard: React.FC<RemoveIssueProps> = ({ issue, removeIssue }) => {
               Issue Description :
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {issue.body || "Issue without discription"}
+              <DescribeIssue longText={issue.body || "no description"} />
             </Typography>
           </Box>
         </Box>
