@@ -7,18 +7,18 @@ import {
   Box,
   Button,
 } from "@mui/material";
-import { IIssue, IssueProps } from "../Issue.type";
+// import { IIssue, IssueProps } from "../Issue.type";
+import { Issue } from "../store/reducers/projectReducers";
 
 type RemoveIssueProps = {
-  removeIssue: (issue: IIssue) => void;
+  issue: Issue;
+  removeIssue: (issue: Issue) => void;
 };
 
-const IssueCard: React.FC<IssueProps & RemoveIssueProps> = ({
-  issue,
-  removeIssue,
-}) => {
+const IssueCard: React.FC<RemoveIssueProps> = ({ issue, removeIssue }) => {
   const handleClick = () => {
     removeIssue(issue);
+    console.log("remove btn clicked => ", issue);
   };
 
   return (

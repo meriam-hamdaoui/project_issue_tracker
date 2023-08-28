@@ -4,26 +4,25 @@ import AddIssue from "./components/AddIssue";
 import IssueCard from "./components/IssueCard";
 import { Container, Typography, Grid, Box } from "@mui/material";
 import { useSelector } from "react-redux";
-import { IIssue } from "./Issue.type";
-import { AppDispatch, RootState, useAppDispatch, issueAction } from "./store";
+import { AppDispatch, RootState, useAppDispatch } from "./store";
 import { fetchIssues } from "./store/reducers/githubIssueReducer";
-import { bindActionCreators } from "@reduxjs/toolkit";
+import { projectActions } from "./store";
+import { Issue } from "./store/reducers/projectReducers";
 
 function App() {
   const dispatch: AppDispatch = useAppDispatch();
 
-  // const issueList = useSelector(
-  //   (state: RootState) => state.issues.projectIssuess
-  // );
-
-  const githubIssueList = useSelector(
-    (state: RootState) => state.githubIssues.issues
+  const projectIssueList = useSelector(
+    (state: RootState) => state.project.issues
   );
+  const loading = useSelector((state: RootState) => state.project.loading);
+  const error = useSelector((state: RootState) => state.project.error);
 
-  const loading = useSelector((state: RootState) => state.githubIssues.loading);
-  const error = useSelector((state: RootState) => state.githubIssues.error);
+  const deleteIssue = (issue: Issue) =>
+    dispatch(projectActions.addProjectIssue(issue));
 
-  const { addIssue, removeIssue } = bindActionCreators(issueAction, dispatch);
+  const addIssueProj = (issue: Issue) =>
+    dispatch(projectActions.addProjectIssue(issue));
 
   useEffect(() => {
     dispatch(fetchIssues());
@@ -44,7 +43,7 @@ function App() {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={4}>
           <Grid item xs={4}>
-            <AddIssue addIssue={addIssue} />
+            <AddIssue addIssue={addIssueProj} />
           </Grid>
 
           <Grid item xs={8}>
@@ -56,11 +55,11 @@ function App() {
               }}
             >
               <Typography variant="h4">Issue To Fix</Typography>
-              {githubIssueList?.map((issue: IIssue) => (
+              {projectIssueList?.map((issue: Issue, index) => (
                 <IssueCard
-                  key={issue.id}
+                  key={index}
                   issue={issue}
-                  removeIssue={removeIssue}
+                  removeIssue={deleteIssue}
                 />
               ))}
             </Box>

@@ -7,10 +7,11 @@ import {
   TextField,
   // MenuItem,
 } from "@mui/material";
-import { IIssue } from "../Issue.type";
+// import { IIssue } from "../Issue.type";
+import { Issue } from "../store/reducers/projectReducers";
 
 type AddIssueProps = {
-  addIssue: (issue: IIssue) => void;
+  addIssue: (issue: Issue) => void;
 };
 
 type EventType = React.ChangeEvent<HTMLInputElement> &
@@ -18,7 +19,7 @@ type EventType = React.ChangeEvent<HTMLInputElement> &
   React.ChangeEvent<HTMLSelectElement>;
 
 const AddIssue: React.FC<AddIssueProps> = ({ addIssue }) => {
-  const [newIssue, setNewIssue] = useState<IIssue>({} as IIssue);
+  const [newIssue, setNewIssue] = useState<Issue>({} as Issue);
 
   const handleChange = (e: EventType) => {
     setNewIssue({

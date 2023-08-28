@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import issueSlice from "./reducers/issueReducer";
 import githubIssueSlice from "./reducers/githubIssueReducer";
+import projectSlice from "./reducers/projectReducers";
 
 export const store = configureStore({
   reducer: {
     issues: issueSlice,
     githubIssues: githubIssueSlice,
+    project: projectSlice,
   },
 });
 

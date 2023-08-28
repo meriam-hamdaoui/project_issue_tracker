@@ -1,3 +1,4 @@
+// reducer file to test add and remove action befor fetching
 import { IIssue, IProject } from "../../Issue.type";
 import { nanoid } from "nanoid";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
