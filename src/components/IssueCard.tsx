@@ -18,7 +18,6 @@ type RemoveIssueProps = {
 const IssueCard: React.FC<RemoveIssueProps> = ({ issue, removeIssue }) => {
   const handleClick = () => {
     removeIssue(issue);
-    console.log("remove btn clicked => ", issue);
   };
 
   return (

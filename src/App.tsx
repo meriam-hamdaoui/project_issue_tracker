@@ -19,7 +19,7 @@ function App() {
   const error = useSelector((state: RootState) => state.project.error);
 
   const deleteIssue = (issue: Issue) =>
-    dispatch(projectActions.addProjectIssue(issue));
+    dispatch(projectActions.removePojectIssue(issue));
 
   const addIssueProj = (issue: Issue) =>
     dispatch(projectActions.addProjectIssue(issue));

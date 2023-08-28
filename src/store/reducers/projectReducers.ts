@@ -68,7 +68,7 @@ export const projectSlice = createSlice({
     addProjectIssue: (state, action: PayloadAction<Issue>) => {
       return {
         ...state,
-        issues: [...state.issues, action.payload],
+        issues: [action.payload, ...state.issues],
       };
     },
     removePojectIssue: (state, action: PayloadAction<Issue>) => {
