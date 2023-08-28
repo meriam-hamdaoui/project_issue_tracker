@@ -29,7 +29,7 @@ const DescribeIssue: React.FC<DescribeProps> = ({ longText }) => {
           className="read-more-button"
           onClick={() => setExpanded(!expanded)}
         >
-          See {expanded ? "Less" : "More"}
+          Read {expanded ? "Less" : "More"}
         </button>
       )}
     </div>
