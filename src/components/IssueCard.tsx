@@ -8,7 +8,7 @@ import {
   Button,
 } from "@mui/material";
 import { Issue } from "../store/reducers/projectReducers";
-import DescribeIssue from "./description-issue/DescribeIssue";
+import DescribeIssue from "./DescribeIssue";
 
 type RemoveIssueProps = {
   issue: Issue;
