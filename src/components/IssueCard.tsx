@@ -21,7 +21,7 @@ const IssueCard: React.FC<RemoveIssueProps> = ({ issue, removeIssue }) => {
   };
 
   return (
-    <Card sx={{ marginBottom: "20px", textAlign: "left" }}>
+    <Card sx={{ marginBottom: "20px", textAlign: "left", width: "500px" }}>
       <CardContent
         sx={{
           display: "flex",
@@ -53,24 +53,6 @@ const IssueCard: React.FC<RemoveIssueProps> = ({ issue, removeIssue }) => {
             </Typography>
           </Box>
         </Box>
-        {/* <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-          <Box>
-            <Typography gutterBottom variant="h6" component="div">
-              Opened At:
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {issue.openedAt.toDateString()}
-            </Typography>
-          </Box>
-          <Box>
-            <Typography gutterBottom variant="h6" component="div">
-              Periority :
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {issue.periority}
-            </Typography>
-          </Box>
-        </Box> */}
       </CardContent>
       <CardActions>
         <Button size="small" onClick={handleClick}>
